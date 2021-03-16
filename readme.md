@@ -12,14 +12,21 @@ PR branch if any changes had been made.
 6. Check https://dev.azure.com/tomashubelbauer/dotnet-formatter/_build
 7. Ensure the script outputs were printed as expected
 
-That's the repository and pipeline set up, next up, let's clone the repository
-locally, set up a .NET project in it and test out this tool in the pipeline
-which looks like it could be able to do the job:
+## Formatters
 
-https://github.com/dotnet/codeformatter
+- https://github.com/dotnet/codeformatter: look to be abandonware
+- http://www.narrange.net/: the website doesn't load
+- https://github.com/codecadwallader/codemaid: doesn't seem to have a CLI
+- https://github.com/DotNetAnalyzers/StyleCopAnalyzers: looks to be supported
+- https://github.com/dotnet/format: looks to be supported and easy to use too
+
+I'm going to go with `dotnet-format` for now. It's CLI usage is documented here:
+https://github.com/dotnet/format/tree/main/docs
+
+## Experiment
 
 - [ ] Set up a .NET project
-- [ ] Try out the `codeformatter` tool
+- [ ] Try out the `dotnet-format` tool
 - [ ] Find a way to pull the tool in the pipeline
 - [ ] Set the pipeline to run the tool
-- [ ] Limit the tool to run only on changed files using `/file`
+- [ ] Limit the tool to run only on changed files using `--include`
