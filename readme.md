@@ -25,8 +25,14 @@ https://github.com/dotnet/format/tree/main/docs
 
 ## Experiment
 
-- [ ] Set up a .NET project
-- [ ] Try out the `dotnet-format` tool
-- [ ] Find a way to pull the tool in the pipeline
-- [ ] Set the pipeline to run the tool
-- [ ] Limit the tool to run only on changed files using `--include`
+```
+dotnet new console
+dotnet tool install -g dotnet-format
+dotnet format
+```
+
+- [ ] Determine only the files changed in the pull request
+- [ ] Run the `dotnet-format` tool only for the files changed in the PR
+- [ ] Commit and push the changes back from the pipeline to the PR branch
+- [ ] See if for multi-project, we need to find changed projects and limit their
+  changed files in multiple invocations of the tool (once per each project)
